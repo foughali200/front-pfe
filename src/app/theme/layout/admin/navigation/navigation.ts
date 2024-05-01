@@ -31,6 +31,37 @@ const NavigationItems = [
         url: '/default',
         icon: 'ti ti-dashboard',
         breadcrumbs: false
+      },
+   
+    ]
+  },
+  {
+    id: 'users',
+    type: 'group',
+    children: [
+      {
+      
+        id: 'users',
+        title: 'Users',
+        type: 'collapse',
+        children: [
+          {
+            id: 'listUser',
+            title: 'ListUser',
+            type: 'item',
+            url: '/list-user',
+            target: true,
+            breadcrumbs: false
+          },
+          {
+            id: 'offer',
+            title: 'Offer',
+            type: 'item',
+            url: '/offer',
+            target: true,
+            breadcrumbs: false
+          }
+        ]
       }
     ]
   },

@@ -53,10 +53,6 @@ export class AdminComponent {
       this.navCollapsedMob = !this.navCollapsedMob;
     }
   }
-  ngOnInit():void{
-    this.http.get('http://localhost:8084/users').subscribe(
-      data =>console.log(data),
-      err =>console.error(err)
-  )}
+ 
 
 }

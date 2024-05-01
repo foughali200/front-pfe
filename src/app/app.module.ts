@@ -18,7 +18,8 @@ import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/na
 import { SharedModule } from './theme/shared/shared.module';
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
 import { GuestComponent } from './theme/layout/guest/guest.component'
-import { TokenInterceptorProvoider } from './service/token.interceptor';
+import { TokenInterceptorProvider } from './service/token.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,9 +35,8 @@ import { TokenInterceptorProvoider } from './service/token.interceptor';
     NavCollapseComponent,
     ConfigurationComponent,
     GuestComponent,
-   
+
   
-   
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,7 @@ import { TokenInterceptorProvoider } from './service/token.interceptor';
      BrowserAnimationsModule
   ],
  
-  providers: [NavigationItem,TokenInterceptorProvoider],
+  providers: [NavigationItem,TokenInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

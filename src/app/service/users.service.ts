@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams ,HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Signup } from '../models/signup';
 import { Login } from '../models/login';
+import { User } from '../models/user';
+
 
 
 @Injectable({
@@ -13,7 +15,10 @@ import { Login } from '../models/login';
 export class UsersService {
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+   
+    
+  ) { }
 
   signup(signup : Signup): Observable<any> {
     return this.http.post("http://localhost:8084/auth/signup", signup, { responseType: "text" });
@@ -21,8 +26,18 @@ export class UsersService {
   signin(signin : Login): Observable<any> {
     return this.http.post("http://localhost:8084/auth/login", signin, { responseType: "text" });
   }
-  
+  getAllUsers():Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:8084/users');
   }
+ 
+
+ 
+}
+
+
+
+  
+
 
 
  

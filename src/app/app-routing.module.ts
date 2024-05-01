@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
-import { authGuard } from './pages/auth.guard';
+import { AuthGuard } from './demo/pages/auth.guard';
+
+
 
 const routes: Routes = [
   {
@@ -16,7 +18,7 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadComponent: () => import('./demo/default/default.component')
+        loadComponent: () => import('./demo/default/default.component'),canActivate:[AuthGuard]
       },
       {
         path: 'typography',
@@ -29,7 +31,16 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/sample-page/sample-page.component')
+      },
+      {
+        path: 'list-user',
+        loadComponent: () => import('./demo/users/list-user/list-user.component'),canActivate:[AuthGuard]
+      },
+      {
+        path: 'offer',
+        loadComponent: () => import('./demo/sample-page/sample-page.component'),canActivate:[AuthGuard]
       }
+   
     ]
   },
   {
@@ -38,10 +49,12 @@ const routes: Routes = [
     children: [
       {
         path: 'guest',
-        loadChildren: () => import('./demo/pages/authentication/authentication.module').then((m) => m.AuthenticationModule),canActivate:[authGuard]
-      }
+        loadChildren: () => import('./demo/pages/authentication/authentication.module').then((m) => m.AuthenticationModule)
+      },
+  
     ]
   }
+ 
 ];
 
 @NgModule({

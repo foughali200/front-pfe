@@ -1,12 +1,37 @@
-<div class="row">
-  <div class="col-sm-12">
-    <app-card cardTitle="Hello Card">
-      <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-        in culpa qui officia deserunt mollit anim id est laborum."
-      </p>
-    </app-card>
-  </div>
+<div class="container">
+  <p class="fs-title">Liste des users</p>
 </div>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">fullName</th>
+      <th scope="col">Role</th>
+      <th scope="col">Email</th>
+      <th scope="col">Offer</th>
+      <th scope="col">Competences</th>
+      <th scope="col">Formations</th>
+      <th scope="col">Experiences</th>
+      <th>Action</th>
+      <th></th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of users">
+      <th scope="row">{{p?.id}}</th>
+      <td>{{p?.fullName}}</td>
+      <td>{{p?.role}}</td>
+      <td>{{p?.email}}</td>
+      <td>{{p?.offers}}</td>
+      <td>{{p?.competences}}</td>
+      <td>{{p?.formations}}</td>
+      <td>{{p?.experiences}}</td>
+      <td>
+     
+      
+      
+    <tr>
+  </tbody>
+</table>

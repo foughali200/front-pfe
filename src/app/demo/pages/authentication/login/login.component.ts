@@ -39,8 +39,8 @@ export default class LoginComponent  implements OnInit {
     } 
   login() {
     this.usersService.signin(this.signInForm.value).subscribe(
-      data=> {
-      this.tokenService.saveToken(data.token)
+     (data:any) => {
+      this.tokenService.saveToken(JSON.parse(data).token)
         alert('Login Success!')
         this.signInForm.reset()
         this.router.navigate(['home']);// Navigate to 'home' route after successful login
